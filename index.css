@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    margin: 0;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #05f86eb1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+h1{
+    font-size: 2rem;
+    color: #00000075;
+}
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+}
