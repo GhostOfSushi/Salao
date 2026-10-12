@@ -205,8 +205,7 @@
             <a class="btn plano__btn" href="#aula-experimental">Escolher plano</a>
           </article>
 
-          <article class="plano plano--destaque">
-            <p class="plano__selo">Mais escolhido</p>
+          <article class="plano">
             <div class="plano__topo">
               <h3 class="plano__nome">Plano Completo</h3>
               <p class="preco"><span class="preco__valor">R$ XX</span><span class="preco__periodo">/mês</span></p>
@@ -217,7 +216,7 @@
               <li>Ciclismo indoor e lutas</li>
               <li>Avaliação física trimestral</li>
             </ul>
-            <a class="btn btn--primario plano__btn" href="#aula-experimental">Escolher plano</a>
+            <a class="btn plano__btn" href="#aula-experimental">Escolher plano</a>
           </article>
 
           <article class="plano">
@@ -360,8 +359,14 @@
     <!-- ============ DEPOIMENTOS ============ -->
     <section class="secao secao--alt" id="depoimentos">
       <div class="container">
-        <h2 class="titulo">Quem treina com a gente</h2>
+        <div class="secao__topo">
+          <h2 class="titulo">Quem treina com a gente</h2>
+          <!-- Preenchido por assets/avaliacoes.js quando as avaliações do Google carregam -->
+          <a class="avaliacoes-resumo" id="avaliacoes-resumo" href="#" target="_blank" rel="noopener" hidden></a>
+        </div>
 
+        <!-- Os 3 cartões abaixo são o conteúdo reserva: aparecem se o Google não estiver configurado ou falhar -->
+        <div class="depoimentos-janela">
         <ul class="depoimentos">
           <li>
             <figure class="depoimento">
@@ -391,6 +396,7 @@
             </figure>
           </li>
         </ul>
+        </div>
       </div>
     </section>
 
@@ -402,7 +408,8 @@
 
         <!-- Troque por um mapa incorporado (iframe do Google Maps, por exemplo) -->
         <div class="ph ph--borda unidade__mapa" role="img" aria-label="Espaço reservado: mapa com a localização da unidade" data-label="[MAPA — localização da unidade]">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2350895548516!2d-46.69148962278793!3d-23.559998761545756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5760d2b5389d%3A0x2776d6d24d0a0680!2sDelas%20Fight!5e0!3m2!1spt-BR!2sbr!4v1791795535709!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.234952098225!2d-46.68891469999999!3d-23.5600037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5760d2b5389d%3A0x2776d6d24d0a0680!2sDelas%20Fight!5e0!3m2!1spt-BR!2sbr!4v1791805701299!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
         </div>
 
         <div class="unidade__info">
@@ -487,6 +494,7 @@
     <a class="btn btn--primario" href="#aula-experimental">Aula experimental</a>
   </div>
 
+  <script src="index.js" defer></script>
   <script>
     // Menu mobile: fecha ao tocar em um link ou ao apertar Esc
     const toggle = document.getElementById('menu-toggle');
