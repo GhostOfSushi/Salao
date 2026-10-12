@@ -1004,42 +1004,9 @@ a { color: inherit; }
 }
 
 /* =========================================================
-   AVALIAÇÕES DO GOOGLE + ROLAGEM CONTÍNUA
-   (as classes .ativa, .carregando e .rolando são aplicadas
-   por assets/avaliacoes.js)
+   DEPOIMENTOS: ROLAGEM CONTÍNUA
+   (as classes .ativa e .rolando são aplicadas por assets/depoimentos.js)
    ========================================================= */
-.avaliacoes-resumo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9375rem;
-  text-decoration: none;
-}
-.avaliacoes-resumo[hidden] { display: none; }
-.avaliacoes-resumo:hover { color: var(--verde); text-decoration: underline; text-underline-offset: 3px; }
-
-.estrelas {
-  display: flex;
-  gap: 0.1rem;
-  color: var(--verde);
-  font-size: 1rem;
-  line-height: 1;
-}
-.avaliacoes-resumo .estrelas { display: inline; }
-.estrela--vazia { color: var(--linha); }
-
-.depoimento__corpo { display: grid; gap: 0.75rem; }
-.depoimento__quem { display: grid; line-height: 1.25; }
-.depoimento__quem a { text-underline-offset: 3px; }
-.depoimento__quem small { color: var(--ink-suave); font-size: 0.8125rem; font-weight: 400; }
-
-.avatar--foto {
-  object-fit: cover;
-  border-style: solid;
-}
-
-/* Janela que recorta a faixa em movimento */
-.depoimentos-janela.carregando { opacity: 0; }
 .depoimentos-janela.ativa {
   overflow: hidden;
   padding-block: 0.5rem;
@@ -1066,14 +1033,6 @@ a { color: inherit; }
 .depoimentos.rolando:hover,
 .depoimentos.rolando:focus-within { animation-play-state: paused; }
 
-.depoimentos.rolando blockquote p {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  line-clamp: 6;
-  overflow: hidden;
-}
-
 @keyframes rolar {
   to { transform: translateX(-50%); }
 }
@@ -1081,3 +1040,52 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .depoimentos.rolando { animation: none; }
 }
+
+/* =========================================================
+   DEPOIMENTOS: FOTO DE PERFIL + "LER MAIS"
+   (se você já tem o seu CSS, copie só este bloco para o final dele)
+   ========================================================= */
+
+/* Foto de perfil: preenche o círculo inteiro, sem distorcer */
+.avatar {
+  overflow: hidden;   /* recorta a imagem no formato redondo */
+}
+.avatar--foto {
+  border: 2px solid var(--ink);
+  background: var(--branco);
+}
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* "corta" a foto para cobrir o círculo */
+}
+
+/* Comentário recolhido em 3 linhas (classe aplicada pelo JavaScript) */
+.depoimento__texto {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+}
+.depoimento--recortado:not(.depoimento--aberto) blockquote p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.depoimento__mais {
+  padding: 0.25rem 0;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font: 600 0.9375rem/1.2 var(--fonte-corpo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.depoimento__mais:hover { color: var(--verde); }
+
+/* Enquanto algum comentário está aberto, a rolagem para */
+.depoimentos.rolando.pausado { animation-play-state: paused; }
