@@ -1,28 +1,506 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>DelasFight</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Nome da academia] · Treine do seu jeito</title>
+  <meta name="description" content="Musculação, aulas coletivas, avaliação física e personal trainer. Agende sua aula experimental.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="DelasFight Logo">
-        <h1>DelasFight</h1>
-        <nav>
-            <a href="#horario">Horário</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>aqui é onde tudo começa</h2>
-        </section>
-    </main>
-    <footer>
 
-    </footer>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- Ícones reutilizáveis (usados com <use href="#i-...">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-halter" viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></symbol>
+    <symbol id="i-kettlebell" viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="M8.5 10.5C8.5 5.5 15.5 5.5 15.5 10.5"/></symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16l4-7h5l3 7M10 9L8.5 6H7M13 9l-2.5 7"/></symbol>
+    <symbol id="i-luva" viewBox="0 0 24 24"><path d="M6 10a4 4 0 014-4h4a4 4 0 014 4v3a6 6 0 01-6 6 6 6 0 01-6-6z"/><path d="M9 19v2h6v-2M10 10h4"/></symbol>
+    <symbol id="i-grupo" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M16 5.5a3 3 0 010 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/></symbol>
+    <symbol id="i-pulso" viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6"/></symbol>
+    <symbol id="i-pessoa" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c0-4 3.1-7 7-7s7 3 7 7"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><path d="M16.8 7.2h.01"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14A3.5 3.5 0 0010.5 8v2H8v3.5h2.5V20H14v-6.5h2.5L17 10h-3z"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></symbol>
+  </svg>
+
+  <!-- ============ CABEÇALHO ============ -->
+  <header class="cabecalho">
+    <div class="container cabecalho__interno">
+
+      <a class="marca" href="#inicio" aria-label="[Nome da academia], página inicial">
+        <span class="marca__logo" aria-hidden="true">LOGO</span>
+        <span class="marca__nome">
+          <span class="nome-longo">[NOME DA ACADEMIA]</span>
+          <span class="nome-curto" aria-hidden="true">[NOME]</span>
+        </span>
+      </a>
+
+      <!-- Menu mobile: checkbox + label (sem JavaScript para abrir/fechar) -->
+      <input class="menu-toggle sr-only" type="checkbox" id="menu-toggle" aria-label="Abrir menu">
+      <label class="menu-btn" for="menu-toggle">
+        <svg class="icon icon-abrir" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon icon-fechar" aria-hidden="true"><use href="#i-fechar"/></svg>
+      </label>
+
+      <nav class="menu" aria-label="Principal">
+        <ul class="menu__lista">
+          <li class="menu__inicio"><a href="#inicio">Início</a></li>
+          <li><a href="#modalidades">Modalidades</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#horarios">Horários</a></li>
+          <li><a href="#unidade">Unidade</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        <div class="menu__acoes">
+          <a class="btn btn--primario menu__cta" href="#aula-experimental">Agendar aula experimental</a>
+          <a class="btn" href="#">Área do aluno</a>
+        </div>
+
+        <div class="menu__info">
+          <p>[Endereço, bairro, cidade]</p>
+          <p>[Seg–Sex 00h–00h · Sáb 00h–00h]</p>
+          <p>[WhatsApp (00) 00000-0000]</p>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grade">
+
+        <div class="hero__texto">
+          <p class="hero__selo">Conheça a academia em uma aula experimental</p>
+          <h1 class="hero__titulo">
+            <span>Treine do seu</span>
+            <span>jeito.</span>
+          </h1>
+          <p class="hero__apoio">Musculação, aulas coletivas e acompanhamento profissional em um só lugar, no ritmo que combina com você.</p>
+          <div class="hero__acoes">
+            <a class="btn btn--primario" href="#planos">Ver planos</a>
+            <a class="btn" href="#unidade">Conhecer a unidade</a>
+          </div>
+        </div>
+
+        <!-- Troque este bloco por <img> ou <video> -->
+        <div class="ph ph--borda hero__midia" role="img" aria-label="Espaço reservado: foto ou vídeo da sala de musculação em uso" data-label="[FOTO / VÍDEO HERO — sala de musculação em uso]"></div>
+
+      </div>
+    </section>
+
+    <!-- ============ DESTAQUES ============ -->
+    <section class="destaques" aria-label="Diferenciais">
+      <ul class="container destaques__lista">
+        <li class="destaque">
+          <span class="destaque__icone"><svg class="icon" aria-hidden="true"><use href="#i-halter"/></svg></span>
+          Musculação
+        </li>
+        <li class="destaque">
+          <span class="destaque__icone"><svg class="icon" aria-hidden="true"><use href="#i-grupo"/></svg></span>
+          Aulas coletivas
+        </li>
+        <li class="destaque">
+          <span class="destaque__icone"><svg class="icon" aria-hidden="true"><use href="#i-pulso"/></svg></span>
+          Avaliação física
+        </li>
+        <li class="destaque">
+          <span class="destaque__icone"><svg class="icon" aria-hidden="true"><use href="#i-pessoa"/></svg></span>
+          Personal trainer
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ MODALIDADES ============ -->
+    <section class="secao" id="modalidades">
+      <div class="container">
+        <div class="secao__topo">
+          <h2 class="titulo">Modalidades</h2>
+          <a class="link-sublinhado" href="#modalidades">Ver todas →</a>
+        </div>
+
+        <ul class="cartoes">
+          <li class="cartao">
+            <div class="ph cartao__foto" role="img" aria-label="Espaço reservado: foto de musculação" data-label="[FOTO]"></div>
+            <div class="cartao__corpo">
+              <div class="cartao__cabeca">
+                <span class="icone-quadro"><svg class="icon" aria-hidden="true"><use href="#i-halter"/></svg></span>
+                <h3 class="cartao__titulo">Musculação</h3>
+              </div>
+              <p class="cartao__texto">Equipamentos modernos e orientação em todos os horários.</p>
+              <a class="link-sublinhado" href="#">Saiba mais →</a>
+            </div>
+          </li>
+
+          <li class="cartao">
+            <div class="ph cartao__foto" role="img" aria-label="Espaço reservado: foto de treino funcional" data-label="[FOTO]"></div>
+            <div class="cartao__corpo">
+              <div class="cartao__cabeca">
+                <span class="icone-quadro"><svg class="icon" aria-hidden="true"><use href="#i-kettlebell"/></svg></span>
+                <h3 class="cartao__titulo">Funcional</h3>
+              </div>
+              <p class="cartao__texto">Treinos dinâmicos que trabalham o corpo todo.</p>
+              <a class="link-sublinhado" href="#">Saiba mais →</a>
+            </div>
+          </li>
+
+          <li class="cartao">
+            <div class="ph cartao__foto" role="img" aria-label="Espaço reservado: foto de ciclismo indoor" data-label="[FOTO]"></div>
+            <div class="cartao__corpo">
+              <div class="cartao__cabeca">
+                <span class="icone-quadro"><svg class="icon" aria-hidden="true"><use href="#i-bike"/></svg></span>
+                <h3 class="cartao__titulo">Ciclismo indoor</h3>
+              </div>
+              <p class="cartao__texto">Aulas de alta energia, no ritmo da música.</p>
+              <a class="link-sublinhado" href="#">Saiba mais →</a>
+            </div>
+          </li>
+
+          <li class="cartao">
+            <div class="ph cartao__foto" role="img" aria-label="Espaço reservado: foto de lutas" data-label="[FOTO]"></div>
+            <div class="cartao__corpo">
+              <div class="cartao__cabeca">
+                <span class="icone-quadro"><svg class="icon" aria-hidden="true"><use href="#i-luva"/></svg></span>
+                <h3 class="cartao__titulo">Lutas</h3>
+              </div>
+              <p class="cartao__texto">Técnica, condicionamento e disciplina no tatame.</p>
+              <a class="link-sublinhado" href="#">Saiba mais →</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PLANOS ============ -->
+    <section class="secao secao--alt" id="planos">
+      <div class="container">
+        <header class="secao__centro">
+          <h2 class="titulo">Escolha seu plano</h2>
+          <p class="secao__apoio">Sem fidelidade. Troque de plano quando quiser.</p>
+        </header>
+
+        <div class="planos">
+
+          <article class="plano">
+            <div class="plano__topo">
+              <h3 class="plano__nome">Plano Básico</h3>
+              <p class="preco"><span class="preco__valor">R$ XX</span><span class="preco__periodo">/mês</span></p>
+            </div>
+            <ul class="beneficios">
+              <li>Musculação livre</li>
+              <li>Avaliação física inicial</li>
+              <li>Acesso ao app de treino</li>
+            </ul>
+            <a class="btn plano__btn" href="#aula-experimental">Escolher plano</a>
+          </article>
+
+          <article class="plano plano--destaque">
+            <p class="plano__selo">Mais escolhido</p>
+            <div class="plano__topo">
+              <h3 class="plano__nome">Plano Completo</h3>
+              <p class="preco"><span class="preco__valor">R$ XX</span><span class="preco__periodo">/mês</span></p>
+            </div>
+            <ul class="beneficios">
+              <li>Tudo do plano Básico</li>
+              <li>Aulas coletivas ilimitadas</li>
+              <li>Ciclismo indoor e lutas</li>
+              <li>Avaliação física trimestral</li>
+            </ul>
+            <a class="btn btn--primario plano__btn" href="#aula-experimental">Escolher plano</a>
+          </article>
+
+          <article class="plano">
+            <div class="plano__topo">
+              <h3 class="plano__nome">Plano Premium</h3>
+              <p class="preco"><span class="preco__valor">R$ XX</span><span class="preco__periodo">/mês</span></p>
+            </div>
+            <ul class="beneficios">
+              <li>Tudo do plano Completo</li>
+              <li>Personal trainer 2x por semana</li>
+              <li>Armário fixo</li>
+            </ul>
+            <a class="btn plano__btn" href="#aula-experimental">Escolher plano</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GRADE DE AULAS ============ -->
+    <section class="secao grade" id="horarios">
+      <div class="container grade__grade">
+
+        <h2 class="titulo grade__titulo">Grade de aulas</h2>
+        <!-- Coloque o PDF em assets/grade-de-aulas.pdf -->
+        <a class="link-sublinhado grade__pdf" href="assets/grade-de-aulas.pdf">Baixar grade completa (PDF) →</a>
+
+        <!-- Desktop: tabela -->
+        <div class="tabela-wrap grade__tabela">
+          <table class="tabela">
+            <caption class="sr-only">Grade semanal de aulas</caption>
+            <thead>
+              <tr>
+                <th scope="col">Horário</th>
+                <th scope="col">Seg</th>
+                <th scope="col">Ter</th>
+                <th scope="col">Qua</th>
+                <th scope="col">Qui</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Sáb</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">06h00</th>
+                <td>Funcional</td>
+                <td>Ciclismo indoor</td>
+                <td>Funcional</td>
+                <td>Ciclismo indoor</td>
+                <td>Funcional</td>
+                <td class="vazio"><span aria-hidden="true">—</span><span class="sr-only">Sem aula</span></td>
+              </tr>
+              <tr>
+                <th scope="row">08h00</th>
+                <td>Ciclismo indoor</td>
+                <td>Lutas</td>
+                <td>Ciclismo indoor</td>
+                <td>Lutas</td>
+                <td>Ciclismo indoor</td>
+                <td>Funcional</td>
+              </tr>
+              <tr>
+                <th scope="row">12h00</th>
+                <td>Funcional</td>
+                <td class="vazio"><span aria-hidden="true">—</span><span class="sr-only">Sem aula</span></td>
+                <td>Lutas</td>
+                <td class="vazio"><span aria-hidden="true">—</span><span class="sr-only">Sem aula</span></td>
+                <td>Funcional</td>
+                <td class="vazio"><span aria-hidden="true">—</span><span class="sr-only">Sem aula</span></td>
+              </tr>
+              <tr>
+                <th scope="row">19h00</th>
+                <td>Lutas</td>
+                <td>Funcional</td>
+                <td>Ciclismo indoor</td>
+                <td>Funcional</td>
+                <td>Lutas</td>
+                <td class="vazio"><span aria-hidden="true">—</span><span class="sr-only">Sem aula</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile: abas por dia (radio + CSS, sem JavaScript) -->
+        <div class="abas grade__abas">
+          <input class="abas__radio sr-only" type="radio" name="dia" id="dia-seg" checked>
+          <input class="abas__radio sr-only" type="radio" name="dia" id="dia-ter">
+          <input class="abas__radio sr-only" type="radio" name="dia" id="dia-qua">
+          <input class="abas__radio sr-only" type="radio" name="dia" id="dia-qui">
+          <input class="abas__radio sr-only" type="radio" name="dia" id="dia-sex">
+          <input class="abas__radio sr-only" type="radio" name="dia" id="dia-sab">
+
+          <div class="abas__lista">
+            <label for="dia-seg">Seg</label>
+            <label for="dia-ter">Ter</label>
+            <label for="dia-qua">Qua</label>
+            <label for="dia-qui">Qui</label>
+            <label for="dia-sex">Sex</label>
+            <label for="dia-sab">Sáb</label>
+          </div>
+
+          <div class="abas__paineis">
+            <ul class="dia dia-seg">
+              <li><span class="dia__hora">06h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">08h00</span><span><strong class="dia__aula">Ciclismo indoor</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">12h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">19h00</span><span><strong class="dia__aula">Lutas</strong><small>[Professor(a) · sala]</small></span></li>
+            </ul>
+            <ul class="dia dia-ter">
+              <li><span class="dia__hora">06h00</span><span><strong class="dia__aula">Ciclismo indoor</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">08h00</span><span><strong class="dia__aula">Lutas</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">19h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+            </ul>
+            <ul class="dia dia-qua">
+              <li><span class="dia__hora">06h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">08h00</span><span><strong class="dia__aula">Ciclismo indoor</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">12h00</span><span><strong class="dia__aula">Lutas</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">19h00</span><span><strong class="dia__aula">Ciclismo indoor</strong><small>[Professor(a) · sala]</small></span></li>
+            </ul>
+            <ul class="dia dia-qui">
+              <li><span class="dia__hora">06h00</span><span><strong class="dia__aula">Ciclismo indoor</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">08h00</span><span><strong class="dia__aula">Lutas</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">19h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+            </ul>
+            <ul class="dia dia-sex">
+              <li><span class="dia__hora">06h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">08h00</span><span><strong class="dia__aula">Ciclismo indoor</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">12h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+              <li><span class="dia__hora">19h00</span><span><strong class="dia__aula">Lutas</strong><small>[Professor(a) · sala]</small></span></li>
+            </ul>
+            <ul class="dia dia-sab">
+              <li><span class="dia__hora">08h00</span><span><strong class="dia__aula">Funcional</strong><small>[Professor(a) · sala]</small></span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ DEPOIMENTOS ============ -->
+    <section class="secao secao--alt" id="depoimentos">
+      <div class="container">
+        <h2 class="titulo">Quem treina com a gente</h2>
+
+        <ul class="depoimentos">
+          <li>
+            <figure class="depoimento">
+              <blockquote><p>[Depoimento do aluno em 2–3 linhas.]</p></blockquote>
+              <figcaption class="depoimento__autor">
+                <span class="avatar" aria-hidden="true"></span>
+                [Nome] · [tempo de academia]
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="depoimento">
+              <blockquote><p>[Depoimento do aluno em 2–3 linhas.]</p></blockquote>
+              <figcaption class="depoimento__autor">
+                <span class="avatar" aria-hidden="true"></span>
+                [Nome] · [tempo de academia]
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="depoimento">
+              <blockquote><p>[Depoimento do aluno em 2–3 linhas.]</p></blockquote>
+              <figcaption class="depoimento__autor">
+                <span class="avatar" aria-hidden="true"></span>
+                [Nome] · [tempo de academia]
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ UNIDADE + FORMULÁRIO ============ -->
+    <section class="secao unidade" id="unidade">
+      <div class="container unidade__grade">
+
+        <h2 class="titulo unidade__titulo">Venha conhecer</h2>
+
+        <!-- Troque por um mapa incorporado (iframe do Google Maps, por exemplo) -->
+        <div class="ph ph--borda unidade__mapa" role="img" aria-label="Espaço reservado: mapa com a localização da unidade" data-label="[MAPA — localização da unidade]"></div>
+
+        <div class="unidade__info">
+          <p>[Endereço, bairro, cidade]</p>
+          <p>[Seg–Sex 00h–00h · Sáb 00h–00h]</p>
+          <p><a href="https://wa.me/5500000000000">[WhatsApp (00) 00000-0000]</a></p>
+        </div>
+
+        <!-- Formulário só de front-end: para enviar de verdade, ajuste action/method -->
+        <form class="form unidade__form" id="aula-experimental" action="#" method="post">
+          <div class="campo">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <button class="btn btn--primario" type="submit">Quero uma aula experimental</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape" id="contato">
+    <div class="container">
+      <div class="rodape__grade">
+
+        <div class="rodape__marca">
+          <p class="rodape__nome">[NOME DA ACADEMIA]</p>
+          <p class="rodape__frase">[Frase curta da marca]</p>
+          <ul class="redes">
+            <li><a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+            <li><a href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+            <li><a href="#" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+          </ul>
+        </div>
+
+        <details class="rodape__col">
+          <summary>Academia</summary>
+          <ul>
+            <li><a href="#modalidades">Modalidades</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#horarios">Horários</a></li>
+          </ul>
+        </details>
+
+        <details class="rodape__col">
+          <summary>Ajuda</summary>
+          <ul>
+            <li><a href="#">Perguntas frequentes</a></li>
+            <li><a href="#">Área do aluno</a></li>
+            <li><a href="#">Trabalhe conosco</a></li>
+          </ul>
+        </details>
+
+        <details class="rodape__col">
+          <summary>Contato</summary>
+          <ul>
+            <li>[Endereço]</li>
+            <li>[Telefone]</li>
+            <li>[E-mail]</li>
+          </ul>
+        </details>
+
+      </div>
+
+      <p class="rodape__legal">
+        © [ANO] [Nome da academia] · [CNPJ] ·
+        <a href="#">Política de privacidade</a> ·
+        <a href="#">Termos de uso</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Barra fixa no mobile -->
+  <div class="barra-mobile">
+    <a class="btn" href="https://wa.me/5500000000000">WhatsApp</a>
+    <a class="btn btn--primario" href="#aula-experimental">Aula experimental</a>
+  </div>
+
+  <script>
+    // Menu mobile: fecha ao tocar em um link ou ao apertar Esc
+    const toggle = document.getElementById('menu-toggle');
+    document.querySelectorAll('.menu a').forEach(a =>
+      a.addEventListener('click', () => { toggle.checked = false; })
+    );
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') toggle.checked = false;
+    });
+
+    // Rodapé: colunas abertas no desktop, sanfona no mobile
+    const desktop = matchMedia('(min-width: 900px)');
+    const colunas = document.querySelectorAll('.rodape__col');
+    const sincronizar = () => colunas.forEach(c => { c.open = desktop.matches; });
+    sincronizar();
+    desktop.addEventListener('change', sincronizar);
+  </script>
 </body>
 </html>
